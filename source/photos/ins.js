@@ -116,8 +116,8 @@
         var data = res.list[j].arr;
         var liTmpl = "";
         for (var i = 0, len = data.link.length; i < len; i++) {
-          var minSrc = 'https://github.com/youcoward/blog-photos-small/' + data.link[i] + '.min.jpg';
-          var src = 'https://github.com/youcoward/blog-photos-big/' + data.link[i];
+          var minSrc = 'https://github.com/youcoward/blog-copy/tree/master/min_photos/' + data.link[i] + '.min.jpg';
+          var src = 'https://github.com/youcoward/blog-copy/tree/master/photos/' + data.link[i];
           // var minSrc = 'https://raw.githubusercontent.com/lawlite19/blog-back-up/master/min_photos/' + data.link[i] + '.min.jpg';
           // var src = 'https://raw.githubusercontent.com/lawlite19/blog-back-up/master/photos/' + data.link[i];
           var type = data.type[i];
