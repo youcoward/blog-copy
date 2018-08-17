@@ -142,17 +142,19 @@ def cut_photo():
     调用Graphics类中的裁剪算法，将src_dir目录下的文件进行裁剪（裁剪成正方形）
     """
     src_dir = "photos/"
-    if directory_exists(src_dir):
-        if not directory_exists(src_dir):
-            make_directory(src_dir)
+    des_dir = "min_photos/"
+
+    if directory_exists(des_dir):
+        if not directory_exists(des_dir):
+            make_directory(des_dir)
         # business logic
-        file_list = list_img_file(src_dir)
+        file_list = list_img_file(des_dir)
         # print file_list
         if file_list:
             print_help()
             for infile in file_list:
-                img = Image.open(src_dir+infile)
-                Graphics(infile=src_dir+infile, outfile=src_dir + infile).cut_by_ratio()            
+                img = Image.open(des_dir+infile)
+                Graphics(infile=des_dir+infile, outfile=des_dir + infile).cut_by_ratio()            
         else:
             pass
     else:
@@ -172,8 +174,11 @@ def git_operation():
     os.system('git push origin master')
 
 if __name__ == "__main__":
-    cut_photo()        # 裁剪图片，裁剪成正方形，去中间部分
+    
     compress_photo()   # 压缩图片，并保存到mini_photos文件夹下
+
+    cut_photo()        # 裁剪图片，裁剪成正方形，去中间部分
+
     git_operation()    # 提交到github仓库
     handle_photo()     # 将文件处理成json格式，存到博客仓库中
     
